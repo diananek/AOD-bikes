@@ -1,0 +1,399 @@
+@import '../scss/mixins.scss';
+@import '../scss/null.scss';
+@import '../scss/header.scss';
+@import '../scss/font.scss';
+@import '../scss/slider.scss';
+@import '../scss/footer.scss';
+.ibg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    img {
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    @include flexbox;
+    flex-direction: column;
+}
+
+.main-screen {
+    flex: 1 0 100%;
+    position: relative;
+    &__bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.block {
+    text-align: center;
+    &__icon {
+        margin: 0 0 33px 0;
+    }
+    &__title {
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 3.6px;
+        color: #353738;
+        margin: 0 0 24px 0;
+    }
+    &__text {
+        line-height: 1.89;
+        color: #848789;
+        &_j {
+            text-align: justify;
+            font-size: 16px;
+            line-height: 1.88;
+            &::after {
+                content: '';
+                display: block;
+                margin: 35px auto 0 auto;
+                width: 50px;
+                height: 1px;
+                background: #d7d7d7;
+            }
+        }
+    }
+    @media (max-width: 1500px) {
+        &__text {
+            &_j {
+                &::after {
+                    margin: 15px auto 0 auto;
+                }
+            }
+        }
+    }
+}
+
+.container {
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.generation {
+    background: #f7f7f7;
+    padding: 117px 0 135px 0;
+    &__title {
+        margin: 0 0 30px 0;
+    }
+    &__text {
+        font-size: 18px;
+    }
+    @media (max-width:900px) {
+        padding: 80px 0;
+    }
+    @media (max-width:600px) {
+        padding: 30px 0;
+    }
+}
+
+.brands {
+    &_rev {
+        .brands__column {
+            order: 1;
+            &_b {
+                order: 2;
+            }
+        }
+    }
+    &__row {
+        @include flexbox();
+    }
+    &__column {
+        flex: 0 1 33.333%;
+        &_b {
+            flex: 0 1 66.667%;
+        }
+    }
+    &__content {
+        padding: 70px 65px 55px 65px;
+        position: relative;
+        &::after {
+            content: '';
+            height: 0;
+            width: 0;
+            margin: 0 0 0 -10px;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #fff;
+        }
+    }
+    &__image {
+        padding: 0 0 37.51% 0;
+    }
+    @media(max-width: 1500px) {
+        &__content {
+            padding: 70px 35px 55px 35px;
+        }
+    }
+    @media (max-width: 1100px) {
+        &_last {
+            .brands__column {
+                &:nth-child(1) {
+                    order: 2;
+                }
+                &:nth-child(2) {
+                    order: 1;
+                }
+                &:nth-child(3) {
+                    order: 3;
+                }
+            }
+        }
+        &__row {
+            flex-direction: column;
+        }
+    }
+}
+
+.slider {
+    padding: 120px 0 60px 0;
+    text-align: center;
+    &__text {
+        font-size: 24px;
+        font-style: italic;
+        line-height: 1.42;
+        color: #848789;
+    }
+    &__title {
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 1.8px;
+        color: #353738;
+        margin: 0 0 20px 0;
+        span {
+            font-weight: 300;
+            color: #848789;
+        }
+    }
+    &__icon {
+        margin: 0 0 35px 0;
+    }
+    @media (max-width:1100px) {
+        padding: 100px 0 60px 0;
+    }
+    @media (max-width:600px) {
+        padding: 80px 0 40px 0;
+    }
+}
+
+.item {
+    display: block;
+    position: relative;
+    height: 100%;
+    &_hidden {
+        .item__logo {
+            img,
+            span {
+                opacity: 0;
+                transition: opacity .5s;
+            }
+            &:hover {
+                img,
+                span {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &__image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    &__logo {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        @include flexbox();
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+        transition: 1s;
+        &:hover {
+            background: rgba(100, 194, 158, 0.5);
+        }
+        span {
+            margin: 14px 0 0 0;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2.8px;
+            text-align: center;
+            color: #ffffff;
+        }
+    }
+    @media (max-width: 1100px) {
+        padding: 0 0 70% 0;
+    }
+}
+
+.shop {
+    &__body {
+        @include flexbox();
+        height: 100%;
+    }
+    &__column {
+        flex: 0 1 16.666%;
+        &_b {
+            flex: 0 1 33.333%;
+        }
+    }
+    &__item {
+        height: auto;
+        padding: 0 0 50% 0;
+        &_h {
+            padding: 0 0 200.5% 0;
+        }
+        &_l {
+            padding: 0 0 100% 0;
+        }
+    }
+    &__footer {
+        background: #282f35;
+        width: 100%;
+        padding: 75px 0;
+        text-align: center;
+    }
+    @media (max-width: 1100px) {
+        &__body {
+            flex-wrap: wrap;
+        }
+        &__column {
+            flex: 0 1 50%;
+            &_b {
+                flex: 1 1 100%;
+            }
+        }
+    }
+    &__btn {
+        display: inline-block;
+        line-height: 48px;
+        height: 50px;
+        border: solid 1px rgba(255, 255, 255, 0.5);
+        padding: 0 60px;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 2.8px;
+        color: #ffffff;
+    }
+}
+
+.shop-block {
+    height: 100%;
+    &__row {
+        @include flexbox();
+    }
+    &__column {
+        flex: 0 1 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    body.lock {
+        overflow: hidden;
+    }
+}
+
+.subscribe {
+    &__body {
+        padding: 110px 0;
+        max-width: 534px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    &__logo {
+        margin: 0 0 39px 0;
+    }
+    &__title {
+        font-size: 24px;
+        font-style: italic;
+        font-weight: normal;
+        color: #848789;
+        margin: 0 0 35px 0;
+    }
+    &__form {
+        @include flexbox();
+    }
+    @media (max-width: 750px) {
+        &__body {
+            padding: 50px 0;
+        }
+        &__form {
+            display: block;
+        }
+    }
+}
+
+.form {
+    &__input {
+        flex: 1 1 auto;
+        padding: 0 8px 0 0;
+        input {
+            width: 100%;
+            height: 69px;
+            border: solid 1px #d3d7d9;
+            font-family: Lato;
+            font-size: 20px;
+            padding: 0 28px;
+            font-style: italic;
+            color: #929292;
+            &:focus {
+                color: #333;
+            }
+        }
+    }
+    &__btn {
+        flex: 0 0 126px;
+        button {
+            width: 100%;
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 1;
+            text-align: center;
+            color: #ffffff;
+            height: 69px;
+            background-color: #64c29e;
+            border: none;
+        }
+    }
+    @media (max-width: 750px) {
+        &__input {
+            padding: 0;
+        }
+        &__btn {
+            margin: 8px 0 0 0;
+        }
+    }
+}
